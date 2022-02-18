@@ -3,7 +3,7 @@ package com.books.integrate.spring.react.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tutorials")
+@Table(name = "tutorial")
 public class Tutorial {
 
 	@Id
@@ -19,14 +19,26 @@ public class Tutorial {
 	@Column(name = "published")
 	private boolean published;
 
+	@Column(name = "price")
+	private double price;
+
 	public Tutorial() {
 
 	}
 
-	public Tutorial(String title, String description, boolean published) {
+	public Tutorial(String title, String description, boolean published , double price) {
 		this.title = title;
 		this.description = description;
 		this.published = published;
+		this.price = price;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public long getId() {
@@ -54,9 +66,9 @@ public class Tutorial {
 		return published;
 	}
 
-	public void setPublished(boolean isPublished) {
+	public void setPublished(boolean published) {
 
-		this.published = isPublished;
+		this.published = published ;
 	}
 
 	@Override
